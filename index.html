@@ -5,11 +5,16 @@
       font-family: Sans-Serif;
       box-sizing: border-box;
     }
+
+    html {
+        --transition-time: .2s;
+        --modal-backdrop: rgba(0, 0, 0, 0.5);
+    }
  
     .modal {
       position: fixed;
       z-index: 999;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: var(--modal-backdrop);
       top: 0;
       left: 0;
       width: 100%;
@@ -22,12 +27,15 @@
       
       visibility: hidden;
       opacity: 0;
-      transition: visibility .2s, opacity .2s;
+      transition:
+        visibility var(--transition-time),
+        opacity var(--transition-time);
     }
 
     .content {
       width: 100%;
       height: auto;
+      
       background-color: white;
       text-align: center;
       padding: 40px;
