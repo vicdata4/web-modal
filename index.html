@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    * {
+      font-family: Sans-Serif;
+      box-sizing: border-box;
+    }
+ 
+    .modal {
+      position: fixed;
+      z-index: 7;
+      background-color: rgba(0, 0, 0, 0.5);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+   
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility .2s, opacity .2s;
+    }
+
+    .content {
+      width: 100%;
+      height: auto;
+      background-color: white;
+      text-align: center;
+      padding: 40px;
+      font-size: 20px;
+      overflow: hidden;
+      
+      margin-top: -50px;
+      transition: margin-top 0.5s;
+    }
+
+    .open {
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    .open > .content {
+      margin: 0px;
+    }
+    
+    .text {
+      margin-bottom: 20px;
+    }
+    
+    @media (min-width: 800px) {
+      .content {
+        width: 50%;
+      }
+    }
+  </style>
+  <body>
+    <div>
+      <div class="modal">
+        <div class="content">
+          <div class="text">
+          Estás seguro de querer eliminar esta tarea?
+          </div>
+          <button onclick="closeModal()">
+            Aceptar
+          </button>
+          <button onclick="closeModal()">
+            Cancelar
+          </button>
+        </div>
+      </div>
+      <button onclick="openModal()">
+        Abrir modal
+      </button>
+    </div>
+  </body>
+  <script>
+    const modal = document.querySelector('.modal');
+
+    function closeModal() {
+      modal.classList.remove('open');
+    }
+
+    function openModal(){
+     	modal.classList.add('open');
+    }
+  </script>
+</html>
